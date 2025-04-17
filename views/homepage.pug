@@ -1,0 +1,30 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    .container
+      h1 Custom Objects List
+      a.button(href="/update-cobj") Add to this table
+      if error
+        .error= error
+      if objects && objects.length > 0
+        table
+          thead
+            tr
+              th Name
+              th Phone
+              th Email
+              th Type Contact
+          tbody
+            each obj in objects
+              tr
+                td= (obj.properties && obj.properties.name) ? obj.properties.name : 'N/A'
+                td= (obj.properties && obj.properties.phone) ? obj.properties.phone : 'N/A'
+                td= (obj.properties && obj.properties.email) ? obj.properties.email : 'N/A'
+                td= (obj.properties && obj.properties.typeContact) ? obj.properties.typeContact : 'N/A'
+      else
+        p No custom objects found. Click "Add to this table" to create one.

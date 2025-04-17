@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    .container
+      h1 Create New Custom Object
+      a(href="/") Return to the homepage
+      
+      if error
+        .error= error
+      
+      form(action="/update-cobj", method="POST")
+        .form-group
+          label(for="name") Name:
+          input#name(type="text", name="name", required)
+        
+        .form-group
+          label(for="phone") Phone:
+          input#phone(type="text", name="phone", required)
+        
+        .form-group
+          label(for="email") Email:
+          input#email(type="email", name="email", required)
+        
+        .form-group
+          label(for="typeContact") Type Contact:
+          select#typeContact(name="typeContact", required)
+            option(value="phone") Phone
+            option(value="email") Email
+        
+        button(type="submit") Create Custom Object
