@@ -19,7 +19,7 @@ app.set("views", path.join(__dirname, "views"));
 const hubspotApiKey = process.env.HUBSPOT_API_KEY;
 const hubspotBaseUrl = "https://api.hubapi.com";
 
-const propertyList = ["name", "phone", "email", "typeContact"];
+const propertyList = ["name", "phone", "email", "typecontact"];
 
 app.get("/", async (req, res) => {
   try {
@@ -91,12 +91,12 @@ app.get("/update-cobj", (req, res) => {
 
 app.post("/update-cobj", async (req, res) => {
   try {
-    const { name, phone, email, typeContact } = req.body;
+    const { name, phone, email, typecontact } = req.body;
     console.log("Creating custom object with properties:", {
       name,
       phone,
       email,
-      typeContact,
+      typecontact,
     });
 
     const response = await axios.post(
@@ -106,7 +106,7 @@ app.post("/update-cobj", async (req, res) => {
           name,
           phone,
           email,
-          typeContact,
+          typecontact,
         },
       },
       {
